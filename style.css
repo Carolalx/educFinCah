@@ -239,15 +239,15 @@ footer {
    GESTÃO FINANCEIRA - LAYOUT A4
    ============================== */
 body.gestao {
-  gap: 36px; /* mesmo gap do index atualizado */
-  padding: 36px;
+  gap: 30px; /* mesmo gap do index atualizado */
+  padding: 30px;
 }
 
 /* CONTAINER PRINCIPAL - ESTILO A4 */
 body.gestao .container {
   max-width: 900px;
-  padding: 40px;
-  gap: 36px;
+  padding: 35px;
+  gap: 30px;
 }
 
 /* CARD */
@@ -275,7 +275,7 @@ body.gestao .form-section {
   min-width: 45%;
 }
 body.gestao .form-section h2 {
-  font-size: 30px;
+  font-size: 18px;
   margin-bottom: 20px;
   text-align: center;
   color: #cfffda;
@@ -286,10 +286,10 @@ body.gestao .input-group {
   margin-bottom: 20px;
 }
 body.gestao .input-group label {
-  font-size: 20px;
+  font-size: 18px;
 }
 body.gestao input[type="number"] {
-  font-size: 20px;
+  font-size: 18px;
   padding: 14px 16px;
 }
 
@@ -301,13 +301,12 @@ body.gestao button.primary {
 
 /* SALDO */
 body.gestao #saldo {
-  font-size: 36px;
+  font-size: 30px;
 }
 
 /* GRÁFICO */
 body.gestao #graficoPreview {
   width: 80%;
-  height: 1400px;
   margin: 0 auto;
 }
 

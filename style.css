@@ -275,7 +275,7 @@ body.gestao .form-section {
   min-width: 45%;
 }
 body.gestao .form-section h2 {
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: 20px;
   text-align: center;
   color: #cfffda;
@@ -286,10 +286,10 @@ body.gestao .input-group {
   margin-bottom: 20px;
 }
 body.gestao .input-group label {
-  font-size: 18px;
+  font-size: 16px;
 }
 body.gestao input[type="number"] {
-  font-size: 18px;
+  font-size: 16px;
   padding: 14px 16px;
 }
 

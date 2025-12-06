@@ -245,7 +245,7 @@ body.gestao {
 
 /* CONTAINER PRINCIPAL - ESTILO A4 */
 body.gestao .container {
-  max-width: 1200px;
+  max-width: 900px;
   padding: 40px;
   gap: 36px;
 }

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sugestão Financeira</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  body { background:#1e1e2f; color:#fff; font-family:sans-serif; }
+  table.recomendacao { width:100%; border-collapse:collapse; margin-top:10px; background:#2a2a3c; }
+  table.recomendacao th, table.recomendacao td { padding:6px; text-align:left; border-bottom:1px solid #444; }
+  .azul { color:#3b82f6; font-weight:bold; }
+  .vermelho { color:#ff4d4d; font-weight:bold; }
+  hr.divisor { margin:25px 0 15px 0; border:0; border-top:1px solid #666; }
+  .btn-fechar { margin-top:12px; padding:8px 12px; background:#444; color:#fff; border:none; cursor:pointer; border-radius:4px; }
+</style>
+</head>
+<body>
+
+<h2 style="text-align:center; margin-top:18px;">📊 Sugestão de Redistribuição</h2>
+
+<div class="container" style="max-width:920px;">
+  <div class="box card" style="padding:14px;">
+    <h3 style="text-align:center;">Distribuição Recomendada</h3>
+    <div id="tabelaRecomendada"></div>
+  </div>
+
+  <hr class="divisor">
+
+  <div class="box card" style="padding:14px; margin-top:12px;">
+    <h3>💰 Projeção de Patrimônio</h3>
+    <label>Taxa mensal (%):</label>
+    <input id="taxaInput" class="inputTaxa" type="number" value="1" style="margin-left:8px;">
+    <div id="projecao" style="margin-top:12px;"></div>
+  </div>
+
+  <div style="text-align:center; margin-top:12px;">
+    <button id="btnFechar" class="btn-fechar"><i class="fa-solid fa-xmark"></i> Fechar</button>
+  </div>
+</div>
+
+<script src="sugestao.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simulador - Index</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="brand">
+      <div class="logo">CA</div>
+      <div>
+        <h1>Simulador & Gestão</h1>
+        <div style="font-size:14px; color:rgba(230,238,241,0.7)">Juros compostos · Gestão doméstica</div>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <a href="index.html"><i class="fa-solid fa-house"></i> Início</a>
+      <a href="gestao.html"><i class="fa-solid fa-chart-pie"></i> Gestão</a>
+      <a href="#" onclick="alert('Contato: carol@example.com')"><i class="fa-solid fa-envelope"></i> Contato</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="form-container card" aria-labelledby="sim-title">
+      <h1 id="sim-title">Simulador de Rentabilidade (Juros Compostos)</h1>
+
+      <form id="simuladorForm" class="form-body" autocomplete="off">
+        <div class="input-group">
+          <label for="capitalInicial">Capital Inicial (R$)</label>
+          <input id="capitalInicial" type="number" min="0" step="0.01" required>
+        </div>
+        <div class="input-group">
+          <label for="aporteMensal">Aporte Mensal (R$)</label>
+          <input id="aporteMensal" type="number" min="0" step="0.01" required>
+        </div>
+        <div class="input-group">
+          <label for="taxaAumentoAporte">Taxa Anual de Aumento do Aporte (%)</label>
+          <input id="taxaAumentoAporte" type="number" step="0.01" value="0">
+        </div>
+        <div class="input-group">
+          <label for="taxaJuros">Taxa de Juros Anual (%)</label>
+          <input id="taxaJuros" type="number" step="0.01" required>
+        </div>
+        <div class="input-group">
+          <label for="periodo">Período de Investimento (Anos)</label>
+          <input id="periodo" type="number" min="1" step="1" required>
+        </div>
+
+        <button class="primary" type="submit"><i class="fa-solid fa-calculator"></i> Simular</button>
+      </form>
+
+      <div id="resultadoArea" class="resultado" style="display:none;">
+        <h2>Resultado</h2>
+        <p>Montante Final: <strong id="montanteFinal"></strong></p>
+        <p>Total de Juros: <strong id="totalJuros"></strong></p>
+      </div>
+    </section>
+
+    <aside class="card gestao-opcao" aria-labelledby="gest-title">
+      <h2 id="gest-title">Gestão Financeira Doméstica</h2>
+      <p style="color:rgba(230,238,241,0.8)">Faça uma rápida análise das suas receitas e despesas e visualize o gráfico.</p>
+
+      <button id="simularAgora" class="primary" type="button"><i class="fa-solid fa-chart-pie"></i> Simular Gestão</button>
+
+      <button class="ghost" style="margin-top:16px" onclick="location.href='https://github.com/Carolalx'">
+        <i class="fa-brands fa-github"></i> Ver no GitHub
+      </button>
+    </aside>
+  </main>
+
+  <footer class="container" style="max-width:980px">
+    Developed by Carol A.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

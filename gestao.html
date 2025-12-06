@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gestão Financeira Doméstica</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+</head>
+<body class="gestao">
+
+<header class="app-header">
+  <div class="brand">
+    <div class="logo">CA</div>
+    <div>
+      <h1>Gestão Financeira</h1>
+      <div style="font-size:12px;color:rgba(230,238,241,0.7)">Resumo rápido das suas contas</div>
+    </div>
+  </div>
+
+  <nav class="main-nav">
+    <a href="index.html"><i class="fa-solid fa-house"></i> Início</a>
+    <a href="gestao.html"><i class="fa-solid fa-chart-pie"></i> Gestão</a>
+  </nav>
+</header>
+
+<main class="container">
+  <div class="card">
+    <form id="gestaoForm" autocomplete="off">
+
+      <h2>RECEITAS</h2>
+      <div class="input-group"><label>Salário</label><input id="salario" type="number" min="0" step="0.01" value="0"></div>
+      <div class="input-group"><label>Bônus</label><input id="bonus" type="number" min="0" step="0.01" value="0"></div>
+      <div class="input-group"><label>Extras</label><input id="extras" type="number" min="0" step="0.01" value="0"></div>
+
+      <h2>SIMULAÇÃO (RENDA)</h2>
+      <div class="input-group">
+        <label><input type="radio" name="simulacao" value="individual" checked> INDIVIDUAL</label>
+        <label><input type="radio" name="simulacao" value="familiar"> FAMILIAR</label>
+      </div>
+
+      <h2>DESPESAS</h2>
+      <hr>
+      <div class="input-group"><label>Moradia</label><input id="moradia" type="number" min="0" step="0.01" value="0"></div>
+      <div class="input-group"><label>Luz</label><input id="luz" type="number" min="0" step="0.01" value="0"></div>
+      <div class="input-group"><label>Água</label><input id="agua" type="number" min="0" step="0.01" value="0"></div>
+      <div class="input-group"><label>Mercado</label><input id="mercado" type="number" min="0" step="0.01" value="0"></div>
+      <div class="input-group"><label>Farmácia</label><input id="farmacia" type="number" min="0" step="0.01" value="0"></div>
+      <div class="input-group"><label>Internet</label><input id="internet" type="number" min="0" step="0.01" value="0"></div>
+      <div class="input-group"><label>Locomoção (Combustível, Ônibus, Motorista por app)</label><input id="locomocao" type="number" min="0" step="0.01" value="0"></div>
+      <div class="input-group"><label>Cartão de Crédito</label><input id="cartaoCredito" type="number" min="0" step="0.01" value="0"></div>
+      <div class="input-group"><label>Educação</label><input id="educacao" type="number" min="0" step="0.01" value="0"></div>
+      <div class="input-group"><label>Lazer</label><input id="lazer" type="number" min="0" step="0.01" value="0"></div>
+      <div class="input-group"><label>Investimentos</label><input id="investimentos" type="number" min="0" step="0.01" value="0"></div>
+
+      <button class="primary" type="submit"><i class="fa-solid fa-calculator"></i> CALCULAR</button>
+    </form>
+
+    <button id="btnVoltarIndex" class="ghost" style="margin-top:12px">
+      <i class="fa-solid fa-arrow-left"></i> Voltar ao Início
+    </button>
+
+    <!-- SALDO -->
+    <h3 style="margin-top:20px">Saldo:</h3>
+    <div id="saldo" style="font-size:20px;font-weight:700;color:#fff;margin-bottom:15px;">R$ 0,00</div>
+
+    <!-- GRÁFICO -->
+    <div style="width:100%; max-width:400px; height:300px; margin:0 auto;">
+      <canvas id="graficoPreview"></canvas>
+    </div>
+
+    <div id="sugestaoBox" style="display:none; margin-top:20px;">
+      <p>Você gostaria de uma sugestão?</p>
+      <button id="btnSugestao" class="btn-sim">SIM</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="container" style="max-width:980px">
+  Developed by Carol A.
+</footer>
+
+<script src="gestao.js"></script>
+</body>
+</html>

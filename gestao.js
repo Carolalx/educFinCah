@@ -7,14 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let grafico = null;
 
-  // --------------------------
-  // AQUI: elementos fullscreen
-  const fullscreenBtn = document.getElementById('fullscreenBtn');
-  const closeBtn = document.getElementById('closeBtn');
-  const fullscreenModal = document.getElementById('fullscreenModal');
-  let fullscreenChart;
-  // --------------------------
-
   form.addEventListener('submit', e => {
     e.preventDefault();
 

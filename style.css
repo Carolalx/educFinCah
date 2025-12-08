@@ -200,7 +200,7 @@ footer {
   margin-top: 12px;
   padding: 12px 20px;
   border: none;
-  background: #4fa3f7;
+  background: #2c73b9;
   color: white;
   border-radius: 10px;
   cursor: pointer;
@@ -294,11 +294,20 @@ body.gestao #saldo {
   text-align: center;
 }
 
+.grafico-container {
+  width: 100%;
+  max-width: 980px; /* mesma largura do container principal */
+  height: 400px;
+  margin: 0 auto;
+}
+
 /* Gráfico centralizado mas sem exagero */
 body.gestao #graficoPreview {
-  width: 100%;
-  max-width: 700px;
-  margin: 0 auto;
+  width: 90%;            /* ocupa 90% do container do form/card */
+  max-width: 90%;       /* mesma largura do form-container */
+  height: 90%;          /* altura adequada para visualização */
+  margin: 0 auto;         /* centraliza */
+  display: block;         /* garante que ocupe bloco completo */
 }
 
 /* TABELA DE RECOMENDAÇÃO */

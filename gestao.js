@@ -7,6 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let grafico = null;
 
+  // --------------------------
+  // AQUI: elementos fullscreen
+  const fullscreenBtn = document.getElementById('fullscreenBtn');
+  const closeBtn = document.getElementById('closeBtn');
+  const fullscreenModal = document.getElementById('fullscreenModal');
+  let fullscreenChart;
+  // --------------------------
+
   form.addEventListener('submit', e => {
     e.preventDefault();
 
@@ -18,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const saldo = totalReceitas - totalDespesas;
     saldoEl.textContent = `R$ ${saldo.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}`;
 
-    // salvar dados para sugestao
     const simulacao = document.querySelector('input[name="simulacao"]:checked').value;
     const dadosGestao = {
       salario: Number(document.getElementById('salario').value),
@@ -50,48 +57,73 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function atualizarGrafico(despesas){
-  const labels = ['Moradia','Luz','Água','Mercado','Farmácia','Internet','Locomoção','Cartão','Educação','Lazer','Investimentos'];
-  const cores = ['#f44336','#e57373','#f08080','#ffb74d','#ffd54f','#ba68c8','#9575cd','#64b5f6','#4fc3f7','#4caf50','#6edc73'];
-  if(grafico){
-    grafico.data.datasets[0].data = despesas;
-    grafico.update();
-  } else {
-    grafico = new Chart(graficoCtx, {
-  type: 'bar', // gráfico de barras
-  data: {
-    labels: ['Moradia','Luz','Água','Mercado','Farmácia','Internet','Locomoção','Cartão','Educação','Lazer','Investimentos'],
-    datasets: [{
-      label: 'Despesas',
-      data: despesas,
-      backgroundColor: ['#f44336','#e57373','#f08080','#ffb74d','#ffd54f','#ba68c8','#9575cd','#64b5f6','#4fc3f7','#4caf50','#6edc73']
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: { display: false },
-      datalabels: {
-        color: '#fff',        // cor do texto
-        anchor: 'center',     // posiciona dentro da barra
-        align: 'center',      // centralizado na barra
-        rotation: -90,         // gira 90º
-        formatter: value => `R$ ${value.toLocaleString('pt-BR',{minimumFractionDigits:2})}`,
-        textStrokeColor: '#000',   // cor da borda do texto (preto)
-        textStrokeWidth: 2,        // espessura da borda
-          font: {weight: 'bold', size: 14}
-          
-      }
-    },
-    scales: {
-      x: { ticks: { autoSkip: false } },
-      y: { beginAtZero: true }
+    const labels = ['Moradia','Luz','Água','Mercado','Farmácia','Internet','Locomoção','Cartão','Educação','Lazer','Investimentos'];
+    const cores = ['#f44336','#e57373','#f08080','#ffb74d','#ffd54f','#ba68c8','#9575cd','#64b5f6','#4fc3f7','#4caf50','#6edc73'];
+    if(grafico){
+      grafico.data.datasets[0].data = despesas;
+      grafico.update();
+    } else {
+      grafico = new Chart(graficoCtx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Despesas',
+            data: despesas,
+            backgroundColor: cores
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            datalabels: {
+              color: '#fff',
+              anchor: 'center',
+              align: 'center',
+              rotation: -90,
+              formatter: value => `R$ ${value.toLocaleString('pt-BR',{minimumFractionDigits:2})}`,
+              textStrokeColor: '#000',
+              textStrokeWidth: 2,
+              font: {weight: 'bold', size: 14}
+            }
+          },
+          scales: {
+            x: { ticks: { autoSkip: false } },
+            y: { beginAtZero: true }
+          }
+        },
+        plugins: [ChartDataLabels]
+      });
     }
-  },
-  plugins: [ChartDataLabels]
-});
-
   }
-}
+
+  // --------------------------
+  // CÓDIGO DO FULLSCREEN
+  fullscreenBtn.addEventListener('click', () => {
+    fullscreenModal.style.display = 'block';
+
+    const ctx = document.getElementById('fullscreenChart').getContext('2d');
+
+    // Destrói gráfico anterior se existir
+    if(fullscreenChart) fullscreenChart.destroy();
+
+    // Clona dados e opções do gráfico preview
+    fullscreenChart = new Chart(ctx, {
+      type: grafico.config.type,
+      data: grafico.config.data,
+      options: {
+        ...grafico.config.options,
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    fullscreenModal.style.display = 'none';
+  });
+  // --------------------------
 
 });

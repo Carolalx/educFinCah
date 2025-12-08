@@ -293,13 +293,11 @@ body.gestao #saldo {
   font-weight: 700;
   text-align: center;
 }
-
 .grafico-container {
   width: 100%;
   max-width: 980px;
-  height: auto;         /* deixa o height automático */
-  max-height: 400px;    /* limite máximo */
-  overflow: hidden;     /* impede scroll interno */
+  height: 400px;       /* altura fixa */
+  overflow: hidden;    
   margin: 0 auto;
 }
 
@@ -307,13 +305,10 @@ body.gestao #saldo {
 /* Gráfico centralizado mas sem exagero */
 body.gestao #graficoPreview {
   width: 100%;
-  max-width: 100%;
-  height: auto;       /* ajusta automaticamente */
-  max-height: 400px;  /* nunca maior que 400px */
-  margin: 0 auto;
+  height: 100%;        /* ocupa toda a altura do container */
+  max-height: none;    /* remove max-height para não conflitar */
   display: block;
 }
-
 
 /* TABELA DE RECOMENDAÇÃO */
 table.recomendacao {

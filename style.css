@@ -296,19 +296,24 @@ body.gestao #saldo {
 
 .grafico-container {
   width: 100%;
-  max-width: 980px; /* mesma largura do container principal */
-  height: 400px;
+  max-width: 980px;
+  height: auto;         /* deixa o height automático */
+  max-height: 400px;    /* limite máximo */
+  overflow: hidden;     /* impede scroll interno */
   margin: 0 auto;
 }
 
+
 /* Gráfico centralizado mas sem exagero */
 body.gestao #graficoPreview {
-  width: 90%;            /* ocupa 90% do container do form/card */
-  max-width: 90%;       /* mesma largura do form-container */
-  height: 90%;          /* altura adequada para visualização */
-  margin: 0 auto;         /* centraliza */
-  display: block;         /* garante que ocupe bloco completo */
+  width: 100%;
+  max-width: 100%;
+  height: auto;       /* ajusta automaticamente */
+  max-height: 400px;  /* nunca maior que 400px */
+  margin: 0 auto;
+  display: block;
 }
+
 
 /* TABELA DE RECOMENDAÇÃO */
 table.recomendacao {

@@ -36,8 +36,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const totalJuros = montanteFinal - totalAportes;
 
-    document.getElementById('montanteFinal').textContent = montanteFinal.toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
-    document.getElementById('totalJuros').textContent = totalJuros.toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
+    document.getElementById('montanteFinal').textContent =
+      montanteFinal.toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
+
+    document.getElementById('totalJuros').textContent =
+      totalJuros.toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
+
+    // NOVO: renda mensal aproximada (1%)
+    const rendaMensal = montanteFinal * 0.01;
+    document.getElementById('rendaMensal').textContent =
+      rendaMensal.toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
+
     resultadoArea.style.display = 'block';
+
   });
 });

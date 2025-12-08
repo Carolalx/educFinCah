@@ -99,33 +99,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // --------------------------
-  // CÓDIGO DO FULLSCREEN
-  fullscreenBtn.addEventListener('click', () => {
-  fullscreenModal.style.display = 'block';
-
-  const ctx = document.getElementById('fullscreenChart').getContext('2d');
-
-  // Destrói gráfico anterior se existir
-  if (fullscreenChart) fullscreenChart.destroy();
-
-  // Copia dados do gráfico preview (deep copy)
-  const dataClone = JSON.parse(JSON.stringify(grafico.data));
-
-  fullscreenChart = new Chart(ctx, {
-    type: grafico.config.type,
-    data: dataClone,
-    options: {
-      ...grafico.options,   // copia opções
-      responsive: true,
-      maintainAspectRatio: true  // mantém proporção para evitar loop
-    }
-  });
-
-  // Força atualização do tamanho do gráfico
-  fullscreenChart.resize();
-  });
-
-  // --------------------------
-
 });

@@ -50,17 +50,48 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function atualizarGrafico(despesas){
-    const labels = ['Moradia','Luz','Água','Mercado','Farmácia','Internet','Locomoção','Cartão','Educação','Lazer','Investimentos'];
-    const cores = ['#f44336','#e57373','#f08080','#ffb74d','#ffd54f','#ba68c8','#9575cd','#64b5f6','#4fc3f7','#4caf50','#6edc73'];
-    if(grafico){
-      grafico.data.datasets[0].data = despesas;
-      grafico.update();
-    } else {
-      grafico = new Chart(graficoCtx, {
-        type:'pie',
-        data: {labels, datasets:[{data:despesas, backgroundColor:cores}]},
-        options:{responsive:true, plugins:{legend:{position:'right'}, datalabels:{formatter:(value)=>`R$ ${value.toLocaleString('pt-BR',{minimumFractionDigits:2})}`}}}, plugins:[ChartDataLabels]
-      });
+  const labels = ['Moradia','Luz','Água','Mercado','Farmácia','Internet','Locomoção','Cartão','Educação','Lazer','Investimentos'];
+  const cores = ['#f44336','#e57373','#f08080','#ffb74d','#ffd54f','#ba68c8','#9575cd','#64b5f6','#4fc3f7','#4caf50','#6edc73'];
+  if(grafico){
+    grafico.data.datasets[0].data = despesas;
+    grafico.update();
+  } else {
+    grafico = new Chart(graficoCtx, {
+  type: 'bar', // gráfico de barras
+  data: {
+    labels: ['Moradia','Luz','Água','Mercado','Farmácia','Internet','Locomoção','Cartão','Educação','Lazer','Investimentos'],
+    datasets: [{
+      label: 'Despesas',
+      data: despesas,
+      backgroundColor: ['#f44336','#e57373','#f08080','#ffb74d','#ffd54f','#ba68c8','#9575cd','#64b5f6','#4fc3f7','#4caf50','#6edc73']
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      datalabels: {
+        color: '#fff',        // cor do texto
+        anchor: 'center',     // posiciona dentro da barra
+        align: 'center',      // centralizado na barra
+        rotation: -90,         // gira 90º
+        formatter: value => `R$ ${value.toLocaleString('pt-BR',{minimumFractionDigits:2})}`,
+        textStrokeColor: '#000',   // cor da borda do texto (preto)
+        textStrokeWidth: 2,        // espessura da borda
+          font: {weight: 'bold', size: 14}
+          
+      }
+    },
+    scales: {
+      x: { ticks: { autoSkip: false } },
+      y: { beginAtZero: true }
     }
+  },
+  plugins: [ChartDataLabels]
+});
+
   }
+}
+
 });

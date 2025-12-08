@@ -162,6 +162,16 @@ button.ghost {
   cursor: pointer;
 }
 
+#fullscreenModal canvas {
+  display: block;
+  margin: auto;
+  width: 90vw;   /* 90% da largura da tela */
+  height: auto;  /* mantém proporção */
+  max-width: 1200px;  /* limite máximo para desktops grandes */
+  max-height: 80vh;   /* limite máximo em altura */
+}
+
+
 /* RESULTADO */
 .resultado {
   margin-top: 20px; /* maior espaçamento */
@@ -293,11 +303,13 @@ body.gestao #saldo {
   font-weight: 700;
   text-align: center;
 }
+
 .grafico-container {
   width: 100%;
   max-width: 980px;
-  height: 400px;       /* altura fixa */
-  overflow: hidden;    
+  height: auto;         /* deixa o height automático */
+  max-height: 400px;    /* limite máximo */
+  overflow: hidden;     /* impede scroll interno */
   margin: 0 auto;
 }
 
@@ -305,8 +317,10 @@ body.gestao #saldo {
 /* Gráfico centralizado mas sem exagero */
 body.gestao #graficoPreview {
   width: 100%;
-  height: 100%;        /* ocupa toda a altura do container */
-  max-height: none;    /* remove max-height para não conflitar */
+  max-width: 100%;
+  height: auto;       /* ajusta automaticamente */
+  max-height: 400px;  /* nunca maior que 400px */
+  margin: 0 auto;
   display: block;
 }
 

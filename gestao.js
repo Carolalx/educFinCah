@@ -102,28 +102,30 @@ document.addEventListener('DOMContentLoaded', () => {
   // --------------------------
   // CÓDIGO DO FULLSCREEN
   fullscreenBtn.addEventListener('click', () => {
-    fullscreenModal.style.display = 'block';
+  fullscreenModal.style.display = 'block';
 
-    const ctx = document.getElementById('fullscreenChart').getContext('2d');
+  const ctx = document.getElementById('fullscreenChart').getContext('2d');
 
-    // Destrói gráfico anterior se existir
-    if(fullscreenChart) fullscreenChart.destroy();
+  // Destrói gráfico anterior se existir
+  if (fullscreenChart) fullscreenChart.destroy();
 
-    // Clona dados e opções do gráfico preview
-    fullscreenChart = new Chart(ctx, {
-      type: grafico.config.type,
-      data: grafico.config.data,
-      options: {
-        ...grafico.config.options,
-        responsive: true,
-        maintainAspectRatio: false
-      }
-    });
+  // Copia dados do gráfico preview (deep copy)
+  const dataClone = JSON.parse(JSON.stringify(grafico.data));
+
+  fullscreenChart = new Chart(ctx, {
+    type: grafico.config.type,
+    data: dataClone,
+    options: {
+      ...grafico.options,   // copia opções
+      responsive: true,
+      maintainAspectRatio: true  // mantém proporção para evitar loop
+    }
   });
 
-  closeBtn.addEventListener('click', () => {
-    fullscreenModal.style.display = 'none';
+  // Força atualização do tamanho do gráfico
+  fullscreenChart.resize();
   });
+
   // --------------------------
 
 });

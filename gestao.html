@@ -70,9 +70,23 @@
     <!-- GRÁFICO -->
     <div class="grafico-container">
       <canvas id="graficoPreview"></canvas>
+    <!-- Botão de tela cheia -->
+      <button id="fullscreenBtn" class="primary" style="margin-top:10px;">
+        <i class="fa-solid fa-expand"></i> Ver gráfico em tela cheia
+      </button>
     </div>
 
-    <div id="sugestaoBox" style="display:none; margin-top:20px;">
+    <!-- Modal de tela cheia -->
+    <div id="fullscreenModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.9); z-index:1000;">
+      <div style="position:relative; width:100%; height:100%;">
+        <button id="closeBtn" style="position:absolute; top:20px; right:20px; padding:10px 15px; background:#fff; border:none; cursor:pointer; font-size:16px; border-radius:5px; z-index:1010;">
+          <i class="fa-solid fa-xmark"></i> Fechar
+        </button>
+        <canvas id="fullscreenChart" style="width:100%; height:100%;"></canvas>
+      </div>
+    </div>
+
+    <div id="sugestaoBox" style="display:none; margin-top:70px;">
       <p>Você gostaria de uma sugestão?</p>
       <button id="btnSugestao" class="btn-sim">SIM</button>
     </div>

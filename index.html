@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -8,6 +9,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body>
 
   <header class="app-header">
@@ -31,7 +33,8 @@
 
       <form id="simuladorForm" class="form-body" autocomplete="off">
         <div class="input-group">
-          <label for="capitalInicial">Capital Inicial (R$) -- Quanto você tem investido, reservado ou guardado hoje.</label>
+          <label for="capitalInicial">Capital Inicial (R$) -- Quanto você tem investido, reservado ou guardado
+            hoje.</label>
           <input id="capitalInicial" type="number" min="0" step="0.01" required>
         </div>
         <div class="input-group">
@@ -39,7 +42,8 @@
           <input id="aporteMensal" type="number" min="0" step="0.01" required>
         </div>
         <div class="input-group">
-          <label for="taxaAumentoAporte">Taxa Anual de Aumento do Aporte (%)-- Se quiser aumentar seu aporte a cada 12 meses, informe quantos %. </label>
+          <label for="taxaAumentoAporte">Taxa Anual de Aumento do Aporte (%)-- Se quiser aumentar seu aporte a cada 12
+            meses, informe quantos %. </label>
           <input id="taxaAumentoAporte" type="number" step="0.01" value="0">
         </div>
         <div class="input-group">
@@ -58,32 +62,53 @@
         <h2>Resultado</h2>
         <p>Montante Final: <strong id="montanteFinal"></strong></p>
         <p>Total de Juros: <strong id="totalJuros"></strong></p>
-        <p>Renda Mensal Aproximada: 
+        <p>Renda Mensal Aproximada:
           <strong id="rendaMensal" style="color:#4fa3f7"></strong>
         </p>
         <p id="infoRenda" style="font-size:13px; color:rgba(230,238,241,0.7); margin-top:4px;">
           O cálculo se baseia na taxa de 1%, desde que não fique nenhum mês sem investir.
         </p>
-</div>
+      </div>
 
     </section>
 
     <aside class="card gestao-opcao" aria-labelledby="gest-title">
       <h2 id="gest-title">Gestão Financeira Doméstica</h2>
-      <p style="color:rgba(230,238,241,0.8)">Faça uma rápida análise das suas receitas e despesas e visualize o gráfico.</p>
+      <p style="color:rgba(230,238,241,0.8)">Faça uma rápida análise das suas receitas e despesas e visualize o gráfico.
+      </p>
 
-      <button id="simularAgora" class="primary" type="button"><i class="fa-solid fa-chart-pie"></i> Simular Gestão</button>
-
-      <button class="ghost" style="margin-top:16px" onclick="location.href='https://github.com/Carolalx'">
-        <i class="fa-brands fa-github"></i> Ver no GitHub
-      </button>
+      <button id="simularAgora" class="primary" type="button"><i class="fa-solid fa-chart-pie"></i> Simular
+        Gestão</button>
     </aside>
   </main>
-
-  <footer class="container" style="max-width:980px">
-    Developed by Carol A.
+  <footer class="bg-white border-gray-200 border-t mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="flex flex-col items-center justify-center space-y-4">
+        <p class="text-lg text-gray-700">Developed by Carol A.<span class="text-red-500 animate-pulse">❤️</span>
+        </p>
+        <div class="flex space-x-6"><a href="https://github.com/Carolalx" target="_blank" rel="noopener noreferrer"
+            class="transition-all hover:scale-110 text-gray-600 hover:text-gray-900" aria-label="GitHub"><svg
+              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-github w-8 h-8">
+              <path
+                d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4">
+              </path>
+              <path d="M9 18c-4.51 2-5-2-7-2"></path>
+            </svg></a><a href="https://www.linkedin.com/in/caroline-a-232a62333/" target="_blank"
+            rel="noopener noreferrer" class="transition-all hover:scale-110 text-gray-600 hover:text-gray-900"
+            aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-linkedin w-8 h-8">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect width="4" height="12" x="2" y="9"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg></a></div>
+      </div>
+    </div>
   </footer>
 
   <script src="script.js"></script>
 </body>
+
 </html>

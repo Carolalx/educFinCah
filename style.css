@@ -221,6 +221,7 @@ button.ghost {
 
 /* FOOTER */
 footer {
+  background-color: #0f0f1e;
   margin-top: 24px;
   /* maior espaçamento */
   text-align: center;
@@ -248,6 +249,30 @@ footer {
   50% {
     opacity: .5;
   }
+}
+
+.github-icon {
+  color: #9ae9b8;
+  /* cor normal */
+  transition: transform 0.2s;
+}
+
+.github-icon:hover {
+  color: #9ae9b8;
+  /* cor ao passar o mouse */
+  transform: scale(1.1);
+}
+
+.linkding-icon {
+  color: #9ae9b8;
+  /* cor normal */
+  transition: transform 0.2s;
+}
+
+.linkding-icon:hover {
+  color: #9ae9b8;
+  /* cor ao passar o mouse */
+  transform: scale(1.1);
 }
 
 
